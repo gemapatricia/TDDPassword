@@ -63,6 +63,11 @@ Class PasswordTest extends TestCase{
         assertTrue($password->validarContrasenna("A34qqqqqq"), "No devuelve verdadero");
     }
 
+    public function testNoMayusucula(){
+        $password = new Password();
+        assertFalse($password->validarContrasenna("q34qqqqqq"), "No devuelve falso");
+    }
+
 }
 
 ?>
