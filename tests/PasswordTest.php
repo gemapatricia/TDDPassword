@@ -21,6 +21,7 @@ Class PasswordTest extends TestCase{
 
     public function testLongitudContrasennaMenor8Error(){
         $password = new Password();
+        $password->validarContrasenna("1234567");
         assertEquals("Contraseña muy corta", $password->getError(), "No coincide el eror");
     }
 
