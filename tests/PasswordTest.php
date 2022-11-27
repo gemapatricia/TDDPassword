@@ -22,7 +22,7 @@ Class PasswordTest extends TestCase{
     public function testLongitudContrasennaMenor8Error(){
         $password = new Password();
         $password->validarContrasenna("1234567");
-        assertEquals("Contraseña muy corta", $password->getError(), "No coincide el eror");
+        assertEquals("Contraseña muy corta", $password->getError(0), "No coincide el eror");
     }
 
     public function testDosNumeros(){
@@ -33,7 +33,7 @@ Class PasswordTest extends TestCase{
     public function testUnNumeroError(){
         $password = new Password();
         $password->validarContrasenna("ABCDFGH2");
-        assertEquals("Contraseña no tiene dos números", $password->getError(), "No coincide el error");
+        assertEquals("Contraseña no tiene dos números", $password->getError(0), "No coincide el error");
     }
 
     public function testUnNumeroSieteCaracteresDosErrores(){
