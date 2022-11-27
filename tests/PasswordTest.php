@@ -3,6 +3,7 @@
 use App\Password;
 use \PHPUnit\Framework\TestCase;
 
+use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertFalse;
 use function PHPUnit\Framework\assertTrue;
 
@@ -16,6 +17,11 @@ Class PasswordTest extends TestCase{
     public function testLongitudContrasennaMenor8(){
         $password = new Password();
         assertFalse($password->validarContrasenna("1234567"));
+    }
+
+    public function testLongitudContrasennaMenor8Error(){
+        $password = new Password();
+        assertEquals("Contraseña muy corta", $password->getError(), "No coincide el eror");
     }
 
 }
