@@ -68,6 +68,12 @@ Class PasswordTest extends TestCase{
         assertFalse($password->validarContrasenna("q34qqqqqq"), "No devuelve falso");
     }
 
+    public function testNoMayusuculaError(){
+        $password = new Password();
+        $password->validarContrasenna("q34qqqqqq");
+        assertEquals("No hay mayúsculas", $password->getError(0), "No coincide el error");
+    }
+
 }
 
 ?>
