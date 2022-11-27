@@ -96,6 +96,11 @@ Class PasswordTest extends TestCase{
         $password = new Password();
         assertTrue($password->validarContrasenna("16Yaswu$"), "No devuelve true");
     }
+
+    public function testNoCaracteresEspecialesError(){
+        $password = new Password();
+        assertFalse($password->validarContrasenna("16Yaswu"), "No devuelve true");
+    }
 }
 
 ?>
