@@ -58,6 +58,11 @@ Class PasswordTest extends TestCase{
         assertEquals("Contraseña no tiene dos números", $password->getError(1), "No coincide el error");
     }
 
+    public function testUnaMayusucula(){
+        $password = new Password();
+        assertTrue($password->validarContrasenna("A34qqqqqq"), "No devuelve verdadero");
+    }
+
 }
 
 ?>
