@@ -49,7 +49,7 @@ Class Password{
         $validez = false;
         
         foreach (str_split($cadena) as $value){
-            if ($value==strtoupper($value)){
+            if (!is_numeric($value) && $value==strtoupper($value)){
                 $validez=true;
                 break;
             }
@@ -58,5 +58,8 @@ Class Password{
     }
 
 }
+
+$objeto = new Password();
+$objeto->comprobarMayuscula("12rrrrrrrr");
 
 ?>
