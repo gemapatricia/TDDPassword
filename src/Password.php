@@ -59,7 +59,4 @@ Class Password{
 
 }
 
-$objeto = new Password();
-$objeto->comprobarMayuscula("12rrrrrrrr");
-
 ?>
