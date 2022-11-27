@@ -1,5 +1,6 @@
-<?php 
+<?php
 
+use App\Password;
 use \PHPUnit\Framework\TestCase;
 
 use function PHPUnit\Framework\assertTrue;
@@ -7,7 +8,7 @@ use function PHPUnit\Framework\assertTrue;
 Class PasswordTest extends TestCase{
 
     public function testLongitudContrasenna(){
-        $password = new Contrasenna();
+        $password = new Password();
         assertTrue($password->validarContrasenna("12345678"));
     }
 
