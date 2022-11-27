@@ -27,9 +27,8 @@ Class PasswordTest extends TestCase{
 
     public function testDosNumeros(){
         $password = new Password();
-        assertEquals(true, $password->validarContrasenna("1234567"), "No hay dos números");
+        assertTrue($password->validarContrasenna("12345678"), "No hay dos números");
     }
-
 }
 
 ?>

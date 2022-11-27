@@ -10,15 +10,28 @@ Class Password{
     }
 
     public function validarContrasenna(string $cadena):bool{
-        return $this->comprobarLongitud($cadena);
+        $validez=false;
+
+        if($this->comprobarLongitud($cadena) && $this->comprobarDosNumeros($cadena)) $validez=true;
+        return $validez;
     }
 
-    public function comprobarLongitud($cadena){
+    public function comprobarLongitud(string $cadena){
         if (strlen($cadena)>=8) return true;
         else {
             $this->error = "Contraseña muy corta";
             return false;
         }
+    }
+
+    public function comprobarDosNumeros(string $cadena){
+        $numerosEncontrados = 0;
+
+        foreach (str_split($cadena) as $value){
+            if (is_numeric($value)) $numerosEncontrados += 1;
+        }
+        
+        return true;
     }
 }
 
