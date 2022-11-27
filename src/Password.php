@@ -33,6 +33,7 @@ Class Password{
         
         return true;
     }
+
 }
 
 ?>
