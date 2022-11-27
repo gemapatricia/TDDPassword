@@ -1,1 +1,1 @@
-{"version":1,"defects":{"PasswordTest::testLongitudContrasenna":4,"PasswordTest::testLongitudContrasennaMenor8":3},"times":{"PasswordTest::testLongitudContrasenna":0.002,"PasswordTest::testLongitudContrasennaMenor8":0}}
+{"version":1,"defects":{"PasswordTest::testLongitudContrasenna":4,"PasswordTest::testLongitudContrasennaMenor8":3},"times":{"PasswordTest::testLongitudContrasenna":0.001,"PasswordTest::testLongitudContrasennaMenor8":0}}
