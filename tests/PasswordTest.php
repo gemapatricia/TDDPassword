@@ -91,6 +91,11 @@ Class PasswordTest extends TestCase{
         $password->validarContrasenna("qtruv");
         assertEquals("No hay mayúsculas", $password->getError(2), "No coincide el error");
     }
+
+    public function testCaracteresEspeciales(){
+        $password = new Password();
+        assertTrue($password->validarContrasenna("16Yaswu$"), "No devuelve true");
+    }
 }
 
 ?>
