@@ -1,4 +1,4 @@
-<?php
+<?php declare( strict_types = 1 );
 
 use App\Password;
 use \PHPUnit\Framework\TestCase;
@@ -42,6 +42,7 @@ Class PasswordTest extends TestCase{
         assertEquals("Contraseña muy corta", $password->getError(0), "No coincide el error");
         assertEquals("Contraseña no tiene dos números", $password->getError(1), "No coincide el error");
     }
+
 }
 
 ?>

@@ -1,25 +1,30 @@
-<?php
+<?php declare( strict_types = 1 );
 
 namespace App;
 
 Class Password{
-    private $error;
+    private $error=[null, null, null, null];
+    public $posicion=0;
 
-    public function getError(){
-        return $this->error;
+    public function getError(int $pos){
+        return $this->error[$pos];
     }
 
     public function validarContrasenna(string $cadena):bool{
+        $condiciones = 0;
         $validez=false;
 
-        if($this->comprobarLongitud($cadena) && $this->comprobarDosNumeros($cadena)) $validez=true;
+        if($this->comprobarLongitud($cadena)) $condiciones += 1;
+        if($this->comprobarDosNumeros($cadena)) $condiciones += 1;
+        if ($condiciones == 2) $validez=true;
         return $validez;
     }
 
     public function comprobarLongitud(string $cadena){
         if (strlen($cadena)>=8) return true;
         else {
-            $this->error = "Contraseña muy corta";
+            $this->error[$this->posicion] = "Contraseña muy corta";
+            $this->posicion += 1;
             return false;
         }
     }
@@ -32,7 +37,11 @@ Class Password{
         }
         
         if ($numerosEncontrados>=2) return true;
-        else $this->error = "Contraseña no tiene dos números";
+        else{
+            $this->error[$this->posicion] = "Contraseña no tiene dos números";
+            $this->posicion += 1;
+            return false;
+        }
     }
 
 }
