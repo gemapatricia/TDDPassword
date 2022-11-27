@@ -3,6 +3,7 @@
 use App\Password;
 use \PHPUnit\Framework\TestCase;
 
+use function PHPUnit\Framework\assertEmpty;
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertFalse;
 use function PHPUnit\Framework\assertTrue;
@@ -97,9 +98,15 @@ Class PasswordTest extends TestCase{
         assertTrue($password->validarContrasenna("16Yaswu$"), "No devuelve true");
     }
 
+    public function testNoCaracteresEspeciales(){
+        $password = new Password();
+        assertFalse($password->validarContrasenna("16Yaswue"), "No devuelve true");
+    }
+
     public function testNoCaracteresEspecialesError(){
         $password = new Password();
-        assertFalse($password->validarContrasenna("16Yaswu"), "No devuelve true");
+        $password->validarContrasenna("16Yaswu");
+        assertEquals("No hay caracteres especiales", $password->getError(0), "No coincide el error");
     }
 }
 
