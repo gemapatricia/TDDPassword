@@ -93,6 +93,12 @@ Class PasswordTest extends TestCase{
         assertEquals("No hay mayúsculas", $password->getError(2), "No coincide el error");
     }
 
+    public function testMenor8NoNumerosNoMayusuculaCuartoError(){
+        $password = new Password();
+        $password->validarContrasenna("qtruv");
+        assertEquals("No hay caracteres especiales", $password->getError(3), "No coincide el error");
+    }
+
     public function testCaracteresEspeciales(){
         $password = new Password();
         assertTrue($password->validarContrasenna("16Yaswu$"), "No devuelve true");
