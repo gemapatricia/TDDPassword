@@ -12,6 +12,11 @@ Class PasswordTest extends TestCase{
         assertTrue($password->validarContrasenna("12345678"));
     }
 
+    public function testLongitudContrasennaMenor8(){
+        $password = new Password();
+        assertTrue($password->validarContrasenna("1234567"));
+    }
+
 }
 
 ?>
