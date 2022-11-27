@@ -30,16 +30,31 @@ Class PasswordTest extends TestCase{
         assertTrue($password->validarContrasenna("12345678"), "No hay dos números");
     }
 
+    public function testUnNumero(){
+        $password = new Password();
+        assertFalse($password->validarContrasenna("ABCDFGH2"), "No devuelve falso");
+    }
+
     public function testUnNumeroError(){
         $password = new Password();
         $password->validarContrasenna("ABCDFGH2");
         assertEquals("Contraseña no tiene dos números", $password->getError(0), "No coincide el error");
     }
 
-    public function testUnNumeroSieteCaracteresDosErrores(){
+    public function testUnNumeroSieteCaracteres(){
+        $password = new Password();
+        assertFalse($password->validarContrasenna("ABCGH2"), "No devuelve falso");
+    }
+
+    public function testUnNumeroSieteCaracteresPrimerError(){
         $password = new Password();
         $password->validarContrasenna("ABCGH2");
         assertEquals("Contraseña muy corta", $password->getError(0), "No coincide el error");
+    }
+
+    public function testUnNumeroSieteCaracteresSegundoError(){
+        $password = new Password();
+        $password->validarContrasenna("ABCGH2");
         assertEquals("Contraseña no tiene dos números", $password->getError(1), "No coincide el error");
     }
 
