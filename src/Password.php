@@ -54,6 +54,10 @@ Class Password{
                 break;
             }
         }
+        if (!$validez){
+            $this->error[$this->posicion] = "No hay mayúsculas";
+            $this->posicion += 1;
+        }
         return $validez;
     }
 
