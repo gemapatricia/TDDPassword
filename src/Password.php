@@ -10,6 +10,10 @@ Class Password{
     }
 
     public function validarContrasenna(string $cadena):bool{
+        return $this->comprobarLongitud($cadena);
+    }
+
+    public function comprobarLongitud($cadena){
         if (strlen($cadena)>=8) return true;
         else {
             $this->error = "Contraseña muy corta";
