@@ -3,6 +3,7 @@
 use App\Password;
 use \PHPUnit\Framework\TestCase;
 
+use function PHPUnit\Framework\assertFalse;
 use function PHPUnit\Framework\assertTrue;
 
 Class PasswordTest extends TestCase{
