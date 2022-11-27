@@ -105,7 +105,7 @@ Class PasswordTest extends TestCase{
 
     public function testNoCaracteresEspecialesError(){
         $password = new Password();
-        $password->validarContrasenna("16Yaswu");
+        $password->validarContrasenna("16Yaswue");
         assertEquals("No hay caracteres especiales", $password->getError(0), "No coincide el error");
     }
 }

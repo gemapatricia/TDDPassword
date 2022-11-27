@@ -72,6 +72,10 @@ Class Password{
                 break;
             }
         }
+        if (!$validez){
+            $this->error[$this->posicion] = "No hay caracteres especiales";
+            $this->posicion += 1;
+        }
         return $validez;
     }
 
