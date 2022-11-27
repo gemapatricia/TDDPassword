@@ -31,7 +31,8 @@ Class Password{
             if (is_numeric($value)) $numerosEncontrados += 1;
         }
         
-        return true;
+        if ($numerosEncontrados>=2) return true;
+        else $this->error = "Contraseña no tiene dos números";
     }
 
 }
