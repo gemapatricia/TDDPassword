@@ -16,11 +16,12 @@ Class Password{
 
         if($this->comprobarLongitud($cadena)) $condiciones += 1;
         if($this->comprobarDosNumeros($cadena)) $condiciones += 1;
-        if ($condiciones == 2) $validez=true;
+        if($this->comprobarMayuscula($cadena)) $condiciones += 1;
+        if ($condiciones == 3) $validez=true;
         return $validez;
     }
 
-    public function comprobarLongitud(string $cadena){
+    public function comprobarLongitud(string $cadena):bool{
         if (strlen($cadena)>=8) return true;
         else {
             $this->error[$this->posicion] = "Contraseña muy corta";
@@ -29,7 +30,7 @@ Class Password{
         }
     }
 
-    public function comprobarDosNumeros(string $cadena){
+    public function comprobarDosNumeros(string $cadena):bool{
         $numerosEncontrados = 0;
 
         foreach (str_split($cadena) as $value){
@@ -42,6 +43,18 @@ Class Password{
             $this->posicion += 1;
             return false;
         }
+    }
+
+    public function comprobarMayuscula(string $cadena):bool{
+        $validez = false;
+        
+        foreach (str_split($cadena) as $value){
+            if ($value==strtoupper($value)){
+                $validez=true;
+                break;
+            }
+        }
+        return $validez;
     }
 
 }
