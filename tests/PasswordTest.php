@@ -25,6 +25,11 @@ Class PasswordTest extends TestCase{
         assertEquals("Contraseña muy corta", $password->getError(), "No coincide el eror");
     }
 
+    public function testDosNumeros(){
+        $password = new Password();
+        assertEquals(true, $password->validarContrasenna("1234567"), "No hay dos números");
+    }
+
 }
 
 ?>
