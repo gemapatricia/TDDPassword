@@ -11,7 +11,7 @@ Class PasswordTest extends TestCase{
 
     public function testLongitudContrasenna(){
         $password = new Password();
-        assertTrue($password->validarContrasenna("12345678A"));
+        assertTrue($password->validarContrasenna("12345678A%"));
     }
 
     public function testLongitudContrasennaMenor8(){
@@ -27,7 +27,7 @@ Class PasswordTest extends TestCase{
 
     public function testDosNumeros(){
         $password = new Password();
-        assertTrue($password->validarContrasenna("12345678A"), "No hay dos números");
+        assertTrue($password->validarContrasenna("12345678A&"), "No hay dos números");
     }
 
     public function testUnNumero(){
@@ -60,7 +60,7 @@ Class PasswordTest extends TestCase{
 
     public function testUnaMayusucula(){
         $password = new Password();
-        assertTrue($password->validarContrasenna("A34qqqqqq"), "No devuelve verdadero");
+        assertTrue($password->validarContrasenna("A34qqqqqq%"), "No devuelve verdadero");
     }
 
     public function testNoMayusucula(){
